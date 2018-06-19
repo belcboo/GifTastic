@@ -3,6 +3,7 @@ var buttons = ["dog", "cat", "rabbit", "hamster", "skunk", "goldfish", "bird", "
 
 //This counter will be to add an unique ID to the buttons that will match the index # in the array.
 var counter = 0;
+var userpick;
 
 var app = {
 
@@ -48,11 +49,20 @@ var app = {
 
   showGif: function() {
 
-    var showgif = $(this).attr("animal");
+    //Generatin the QueryURL.
+    var api = "&api_key=osci6gUKNLoHPAxZkxn8zpUNbfrXEghy";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userpick + api;
 
-    var api = osci6gUKNLoHPAxZkxn8zpUNbfrXEghy;
-    var queryURL = ;
-    console.log(showgif);
+    //Getting the gifs using the Giphy API with Ajax.
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response){ //all the information queed from Giphy is stored in the object "response".
+
+
+
+    })
+
   },
 
 };
@@ -71,6 +81,8 @@ $("#addAnimal").on('click', function(event) {
 //Clicking one of the buttons.
 $(document.body).on('click', ".button", function(){
 
+  //Updates the userpick variable with the value
+  userpick = $(this).attr("animal");
   app.showGif();
 
 });
