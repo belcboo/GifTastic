@@ -12,7 +12,6 @@ var app = {
     for (var i = 0; i < buttons.length; i++) {
 
       var sp = $("<button>"); //Creates a new button
-      sp.attr("id", "item-" + counter); //Add id with value "item-" and the actual counter value.
       sp.attr("class", "button"); //Adds a class called button.
       sp.attr("animal", buttons[i]); //Adds a custom attribute with the name of the animal.
       sp.append("" + buttons[i]); //Adds the value of the animal to display in the button.
@@ -21,7 +20,7 @@ var app = {
 
       //Increase the counter to have it 'up to date'.
       counter++;
-    }
+    };
   },
 
   //Function to create buttons typed by user.
@@ -32,7 +31,6 @@ var app = {
 
     //Create the new button, and add an ID and a custon attribute.
     var sp = $("<button>");
-    sp.attr("id", "item-" + counter);
     sp.attr("class", "button");
     sp.attr("animal", newbutton);
     sp.append("" + newbutton);
@@ -46,10 +44,11 @@ var app = {
     //Cleaning text box.
     $("#animal-input").val("");
   },
+
   //Creates a new button//Creates a new button
   showGif: function() {
 
-    //Cleaning.
+    //Cleaning div
     $("#images").empty();
 
     //Generatin the QueryURL.
@@ -69,7 +68,7 @@ var app = {
 
         gifSpan.attr("id", "gif"); //Adds ID to modify data on CSS.
 
-        ratingDiv.append("Rating: ", response.data[j].rating); //pulling the rating for the image.
+        ratingDiv.append("Rating: ", response.data[j].rating); //pulling the rating for the imageß.
 
         gifImg.attr("src", response.data[j].images.original.url); //pulling the url for the image.
         gifImg.attr("height", "250px"); //Adds same height to all the images to have a more uniform look.
@@ -79,11 +78,12 @@ var app = {
         gifSpan.append(gifImg); //Appending the image to the span.
 
         $("#images").append(gifSpan); //Generating the span in the body of the website.
-      }
-    })
 
+        //Clean userpick
+        userpick.val("");
+      };
+    });
   },
-
 };
 
 
@@ -103,5 +103,4 @@ $(document.body).on('click', ".button", function() {
   //Updates the userpick variable with the value
   userpick = $(this).attr("animal");
   app.showGif();
-
 });
