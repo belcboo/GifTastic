@@ -46,8 +46,11 @@ var app = {
     //Cleaning text box.
     $("#animal-input").val("");
   },
-//Creates a new button//Creates a new button
+  //Creates a new button//Creates a new button
   showGif: function() {
+
+    //Cleaning.
+    $("#images").empty();
 
     //Generatin the QueryURL.
     var api = "&api_key=osci6gUKNLoHPAxZkxn8zpUNbfrXEghy";
@@ -59,18 +62,24 @@ var app = {
       method: "GET"
     }).then(function(response) { //all the information queed from Giphy is stored in the object "response".
 
-      var gifSpan = $("<span>"); //Using span to have all the new images inline by default.
-      var ratingDiv = $("<div>");//This will hold the rating.
-      var gifImg = $("<img>"); //This will hold the gif.
+      for (var j = 0; j < 10; j++) {
+        var gifSpan = $("<span>"); //Using span to have all the new images inline by default.
+        var ratingDiv = $("<div>"); //This will hold the rating.
+        var gifImg = $("<img>"); //This will hold the gif.
 
-      ratingDiv.append("Rating: ", response.data[1].rating); //pulling the rating for the image.
-      gifImg.attr("src", response.data[1].images.original.url); //pulling the url for the image.
+        gifSpan.attr("id", "gif"); //Adds ID to modify data on CSS.
 
-      gifSpan.append(ratingDiv);//Appending the rating to the span.
-      gifSpan.append(gifImg); //Appending the image to the span.
+        ratingDiv.append("Rating: ", response.data[j].rating); //pulling the rating for the image.
 
-      $("#images").append(gifSpan);//Generating the span in the body of the website.
+        gifImg.attr("src", response.data[j].images.original.url); //pulling the url for the image.
+        gifImg.attr("height", "250px"); //Adds same height to all the images to have a more uniform look.
+        gifImg.attr("alt", userpick); //Adds alt tag to the images.
 
+        gifSpan.append(ratingDiv); //Appending the rating to the span.
+        gifSpan.append(gifImg); //Appending the image to the span.
+
+        $("#images").append(gifSpan); //Generating the span in the body of the website.
+      }
     })
 
   },
