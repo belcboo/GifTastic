@@ -7,24 +7,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>GifTastic</title>
 
-
+  <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 </head>
 
-<body>
+<body class="grid-container">
 
-  <div id="buttons"></div>
+  <div id="buttons" class="header"></div>
 
-  <form id="animal-form">
-    <label for="animal-input"> Add an animal:</label>
-    <input id="animal-input" type="text">
-    <input id="addAnimal" value="Submit" type="submit">
-  </form>
+  <div id="images" class="leftcolumn"></div>
 
-  <div id="images"></div>
+  <div class="rightcolumn" id="userinput">
+    <form id="animal-form">
+      <label for="animal-input">Add an animal:</label>
+      <input id="animal-input" type="text">
+      <input id="addAnimal" value="Submit" type="submit">
+    </form>
+  </div>
 
-  <script type="text/jscript" src="assets/js/app.js"></script>
+
+
+
+  <script type="text/javascript" src="assets/js/app.js"></script>
 
 
 </body>
