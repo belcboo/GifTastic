@@ -2,7 +2,6 @@
 var buttons = ["dog", "cat", "rabbit", "hamster", "skunk", "goldfish", "bird", "ferret", "turtle", "sugar glider", "chinchilla", "hedhehog", "hermit crab", "gerbil", "pygmy goat", "chicken", "capybara", "teacup pig", "serval", "salamander", "frog"];
 
 //This counter will be to add an unique ID to the buttons that will match the index # in the array.
-var counter = 0;
 var userpick = "";
 
 var app = {
@@ -18,8 +17,6 @@ var app = {
 
       $("#buttons").append(sp); //Append the new button to the assigned div in the body.
 
-      //Increase the counter to have it 'up to date'.
-      counter++;
     };
   },
 
@@ -37,9 +34,6 @@ var app = {
 
     //Append the new button to the div "buttons".
     $("#buttons").append(sp);
-
-    //Increase counter to add unique id to the buttons.
-    counter++;
 
     //Cleaning text box.
     $("#animal-input").val("");
@@ -109,8 +103,8 @@ $("#addAnimal").on('click', function(event) {
 });
 
 //Clicking one of the buttons.
-$(document.body).on('click', ".button", function() {
-
+$(document.body).on('click', ".button", function(event) {
+  event.preventDefault();
   //Updates the userpick variable with the value
   userpick = $(this).attr("animal");
   app.showGif();
