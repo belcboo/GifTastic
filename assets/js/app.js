@@ -73,10 +73,10 @@ var app = {
         ratingDiv.append("Rating: ", response.data[j].rating); //pulling the rating for the imageß.
 
         gifImg.attr("src", response.data[j].images.original.url); //pulling the url for the image.
-        gifImg.attr("height", "250px"); //Adds same height to all the images to have a more uniform look.
+        gifImg.attr("height", "230px"); //Adds same height to all the images to have a more uniform look.
         gifImg.attr("alt", userpick); //Adds alt tag to the images.
 
-        gifWidth = Math.round(((250 * response.data[j].images.original.width) / response.data[j].images.original.height) * 100) / 100;
+        gifWidth = Math.round(((230 * response.data[j].images.original.width) / response.data[j].images.original.height) * 100) / 100;
 
         spanWidth = gifWidth + 10;
 
