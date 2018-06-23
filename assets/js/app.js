@@ -36,7 +36,7 @@ var app = {
     $("#buttons").append(sp);
 
     //Cleaning text box.
-    $("#animal-input").val("");
+    $("#animal-input").text("");
   },
 
   //Creates a new button//Creates a new button
@@ -99,6 +99,7 @@ app.defaultButtons();
 //Adding a new custom button by user.
 $("#addAnimal").on('click', function(event) {
   event.preventDefault();
+
   app.newButton();
 });
 

@@ -19,6 +19,14 @@
   color: white;
 }
 
+.addButton{
+  margin: 3px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: rgb(91, 142, 149);
+  color: white;
+}
+
 #image {
   grid-area: images;
 }
